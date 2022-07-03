@@ -19,6 +19,7 @@ To use pagination help commands:
    pip install -U nextcord-ext-help-commands[menus]
 
 Basic usage
+-----------
 
 .. code:: py
 
