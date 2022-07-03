@@ -13,7 +13,12 @@ Help Commands
 PaginatedHelpCommand
 ~~~~~~~~~~~~~~~~~~~~
 
-.. attributetable:: PaginatedHelpCommand
-
 .. autoclass:: PaginatedHelpCommand
+    :members:
+
+
+Exceptions
+----------
+
+.. autoclass:: MissingDependencyError
     :members:

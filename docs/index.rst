@@ -25,7 +25,14 @@ Basic usage
    from nextcord.ext import commands
    from nextcord.ext import help_commands
 
-   bot = commands.Bot(command_prefix="$", help_command=help_commands.PaginatedHelpCommand())
+   intents = nextcord.Intents.default()
+   intents.message_content = True
+
+   bot = commands.Bot(
+      command_prefix="$",
+      intents=intents,
+      help_command=help_commands.PaginatedHelpCommand()
+   )
 
    bot.run("token")
 
@@ -44,7 +51,7 @@ License
 
 
 .. |Discord server invite| image:: https://discord.com/api/guilds/881118111967883295/embed.png
-   :target: https://discord.gg/ZebatWssCB
+   :target: https://discord.gg/nextcord
 .. |PyPI version info| image:: https://img.shields.io/pypi/v/nextcord-ext-help-commands.svg
    :target: https://pypi.python.org/pypi/nextcord-ext-help-commands
 .. |PyPI supported Python versions| image:: https://img.shields.io/pypi/pyversions/nextcord.svg

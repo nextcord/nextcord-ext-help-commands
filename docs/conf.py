@@ -7,7 +7,6 @@ copyright = "2022 Nextcord"
 author = "Nextcord"
 
 sys.path.insert(0, os.path.abspath(".."))
-sys.path.append(os.path.abspath("extensions"))
 
 _version_regex = r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]'
 
@@ -48,7 +47,6 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx_book_theme",
     "sphinxcontrib_trio",
-    "attributetable",
 ]
 
 
