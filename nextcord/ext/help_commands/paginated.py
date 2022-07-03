@@ -22,6 +22,7 @@ if TYPE_CHECKING:
     ListPageSource = menus.ListPageSource
     ButtonMenuPages = menus.ButtonMenuPages
 
+
 class HelpPageSource(ListPageSource):
     """Page source for dividing the list of tuples into pages and displaying them in embeds"""
 
