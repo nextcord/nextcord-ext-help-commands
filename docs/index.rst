@@ -31,7 +31,7 @@ Basic usage
    bot = commands.Bot(
       command_prefix="$",
       intents=intents,
-      help_command=help_commands.PaginatedHelpCommand()
+      help_command=help_commands.PaginatedHelpCommand(),
    )
 
    bot.run("token")
