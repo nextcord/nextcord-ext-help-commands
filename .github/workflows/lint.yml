@@ -52,7 +52,7 @@ jobs:
 
       # all extras are installed to test
       - name: Install dependencies
-        run: python -m pip install -r requirements-dev.txt .[voice,docs,speed]
+        run: python -m pip install -r requirements-dev.txt .[docs,menus]
 
       - name: Set up pyright
         run: echo "PYRIGHT_VERSION=$(python -c 'import pyright; print(pyright.__pyright_version__)')" >> $GITHUB_ENV
