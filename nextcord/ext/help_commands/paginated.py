@@ -140,4 +140,4 @@ class PaginatedHelpCommand(commands.MinimalHelpCommand):
         await self.get_destination().send(embed=embed)
 
     # Use the same function as group help for command help
-    send_command_help = send_group_help
+    send_command_help = send_group_help  # type: ignore
