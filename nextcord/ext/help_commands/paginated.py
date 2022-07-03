@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import TYPE_CHECKING, List, Tuple
 
 import nextcord
 from nextcord.ext import commands
@@ -16,6 +16,11 @@ except ImportError:
     ListPageSource = object
     ButtonMenuPages = object
 
+if TYPE_CHECKING:
+    from nextcord.ext import menus
+
+    ListPageSource = menus.ListPageSource
+    ButtonMenuPages = menus.ButtonMenuPages
 
 class HelpPageSource(ListPageSource):
     """Page source for dividing the list of tuples into pages and displaying them in embeds"""
