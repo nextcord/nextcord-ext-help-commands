@@ -1,7 +1,8 @@
 from typing import Optional
+from nextcord import DiscordException
 
 
-class MissingDependencyError(Exception):
+class MissingDependencyError(DiscordException):
     def __init__(self, class_name: str, dependency: str, extra_group: Optional[str] = None):
         self.class_name = class_name
         self.dependency = dependency
