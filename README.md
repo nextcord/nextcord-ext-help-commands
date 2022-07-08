@@ -1,6 +1,6 @@
 # nextcord-ext-help-commands
 
-[![Discord server invite](https://img.shields.io/discord/881118111967883295?color=blue&label=discord)](https://discord.gg/ZebatWssCB)
+[![Discord server invite](https://img.shields.io/discord/881118111967883295?color=blue&label=discord)](https://discord.gg/nextcord)
 [![PyPI version info](https://img.shields.io/pypi/v/nextcord-ext-help-commands.svg)](https://pypi.python.org/pypi/nextcord-ext-help-commands)
 [![PyPI supported Python versions](https://img.shields.io/pypi/pyversions/nextcord.svg)](https://pypi.python.org/pypi/nextcord)
 [![Nextcord-ext-help-commands Documentation](https://img.shields.io/readthedocs/nextcord-ext-help-commands.svg)](https://nextcord-ext-help-commands.readthedocs.io)
@@ -41,7 +41,14 @@ py -3 -m pip install -U nextcord-ext-help-commands[menus]
 from nextcord.ext import commands
 from nextcord.ext import help_commands
 
-bot = commands.Bot(command_prefix="$", help_command=help_commands.PaginatedHelpCommand())
+intents = nextcord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(
+    command_prefix="$",
+    intents=intents,
+    help_command=help_commands.PaginatedHelpCommand(),
+)
 
 bot.run("token")
 ```
@@ -49,7 +56,7 @@ bot.run("token")
 ## Links
 
 - [Documentation](https://nextcord-ext-help-commands.readthedocs.io/en/latest/)
-- [Official Discord server](https://discord.gg/ZebatWssCB)
+- [Official Discord server](https://discord.gg/nextcord)
 
 ## License
 
