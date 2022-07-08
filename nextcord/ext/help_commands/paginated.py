@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import TYPE_CHECKING, List, Tuple
 
 import nextcord
 from nextcord.ext import commands
@@ -15,6 +15,12 @@ except ImportError:
     HAS_MENUS = False
     ListPageSource = object
     ButtonMenuPages = object
+
+if TYPE_CHECKING:
+    from nextcord.ext import menus
+
+    ListPageSource = menus.ListPageSource
+    ButtonMenuPages = menus.ButtonMenuPages
 
 
 class HelpPageSource(ListPageSource):
@@ -140,4 +146,4 @@ class PaginatedHelpCommand(commands.MinimalHelpCommand):
         await self.get_destination().send(embed=embed)
 
     # Use the same function as group help for command help
-    send_command_help = send_group_help
+    send_command_help = send_group_help  # type: ignore

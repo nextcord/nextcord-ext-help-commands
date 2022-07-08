@@ -8,7 +8,7 @@ The following is a set of guidelines for contributing to the repository. These a
 
 Generally speaking questions are better suited in our resources below.
 
-- The official support server: <https://discord.gg/ZebatWssCB>
+- The official support server: <https://discord.gg/nextcord>
 - The Discord API server under #python_discord-py: <https://discord.gg/discord-api>
 - [The FAQ in the documentation](https://nextcord.readthedocs.io/en/latest/faq.html)
 - [StackOverflow's `nextcord` tag](https://stackoverflow.com/questions/tagged/nextcord)
