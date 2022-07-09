@@ -5,9 +5,7 @@ from nextcord import Embed, Message
 from nextcord.ext.commands import HelpCommand, Command, Group, Cog
 
 if TYPE_CHECKING:
-    from typing import Any, Callable, Mapping, Optional, Union
-
-    from nextcord import Context
+    from typing import Mapping, Union
 
 
 class EmbeddedHelpCommand(HelpCommand):
