@@ -77,7 +77,7 @@ class EmbeddedHelpCommand(HelpCommand):
             syntax = f"{self.context.prefix}{group.qualified_name} {sub_command.name} {sub_command.signature}"
             emb.add_field(
                 name=f"{syntax}",
-                value=f"`{sub_command.description or 'No description defined.'}`",
+                value=f"`{sub_command.description or 'No description provided.'}`",
                 inline=False,
             )
 
@@ -89,7 +89,9 @@ class EmbeddedHelpCommand(HelpCommand):
         syntax = f"{self.context.clean_prefix}{command.qualified_name} {command.signature}"
         emb = Embed(title=self.command_heading)
         emb.add_field(
-            name=syntax, value=f"`{command.description or 'No description defined.'}`", inline=False
+            name=syntax,
+            value=f"`{command.description or 'No description provided.'}`",
+            inline=False,
         )
 
         return await self.send_embed(emb)
