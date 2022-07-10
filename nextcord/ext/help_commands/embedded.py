@@ -1,11 +1,8 @@
-from typing import TYPE_CHECKING
+from typing import Mapping, Union
 
 from nextcord.ext.commands import Cog, Command, Group, HelpCommand
 
 from nextcord import Embed, Message
-
-if TYPE_CHECKING:
-    from typing import Mapping, Union
 
 
 class EmbeddedHelpCommand(HelpCommand):
