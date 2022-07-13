@@ -88,7 +88,7 @@ class EmbeddedHelpCommand(HelpCommand):
         emb = Embed(title=self.command_heading)
         emb.add_field(
             name=syntax,
-            value=f"`{command.description or 'No description provided.'}`",
+            value=f"`{command.help or 'No description provided.'}`",
             inline=False,
         )
 
