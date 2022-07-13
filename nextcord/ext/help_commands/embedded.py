@@ -37,7 +37,8 @@ class EmbeddedHelpCommand(HelpCommand):
         bare_cmd_list = " ".join(
             self.determine_group_or_command(cmd) for cmd in self.context.bot.commands if not cmd.cog
         )
-        emb.add_field(name=self.no_category, value=bare_cmd_list, inline=False)
+        if bare_cmd_list:
+            emb.add_field(name=self.no_category, value=bare_cmd_list, inline=False)
 
         for cog in self.context.bot.cogs:
 
