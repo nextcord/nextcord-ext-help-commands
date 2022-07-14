@@ -125,11 +125,14 @@ class EmbeddedHelpCommand(HelpCommand):
         )
 
         cog_cmds = cog.get_commands()
-        cog_cmd_list = " ".join(self.determine_group_or_command(cmd) for cmd in cog_cmds)
+        for command in cog.walk_commands():
+            if not command.parent:
+                syntax = f"{self.context.clean_prefix}{command.qualified_name} {command.signature}"
+                cog_embed.add_field(
+                    name=syntax,
+                    value=f"`{command.help or command.brief or 'No description provided.'}`",
+                    inline=False,
+                )
 
-        if cog_cmd_list:
-            cog_embed.add_field(
-                name=f"**{cog.qualified_name} Commands:**", value=cog_cmd_list, inline=False
-            )
         cog_embed.set_footer(text=f"{len(cog_cmds)} Cog-Commands")
         return await self.send_embed(cog_embed)
