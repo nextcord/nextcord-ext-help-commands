@@ -59,10 +59,14 @@ class EmbeddedHelpCommand(HelpCommand):
         )
 
         bare_cmd_list = " ".join(
-            self.determine_group_or_command(cmd) for cmd in self.context.bot.commands if not cmd.cog
+            self.determine_group_or_command(bare_cmd)
+            for bare_cmd in self.context.bot.commands
+            if not bare_cmd.cog
         )
         if bare_cmd_list:
-            bare_cmd_count = len([x.name for x in self.context.bot.commands if not x.cog])
+            bare_cmd_count = len(
+                [bare_cmd.name for bare_cmd in self.context.bot.commands if not bare_cmd.cog]
+            )
             main_embed.add_field(name=f"Bare [{bare_cmd_count}]", value=bare_cmd_list, inline=False)
 
         for cog in self.context.bot.cogs:
