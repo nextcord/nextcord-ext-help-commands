@@ -91,7 +91,9 @@ class EmbeddedHelpCommand(HelpCommand):
             color=self.command_embed_color,
         )
         command_embed.add_field(
-            name=f"`{syntax}`", value=f"`{command.help or 'No description defined.'}`", inline=False
+            name=syntax,
+            value=f"`{command.help or command.brief or 'No description provided.'}`",
+            inline=False,
         )
 
         return await self.send_embed(command_embed)
@@ -105,10 +107,10 @@ class EmbeddedHelpCommand(HelpCommand):
         )
 
         for sub_command in group.walk_commands():
-            syntax = f"{self.context.prefix}{group.qualified_name} {sub_command.name} {sub_command.signature}"
+            syntax = f"{self.context.clean_prefix}{group.qualified_name} {sub_command.name} {sub_command.signature}"
             group_embed.add_field(
-                name=f"{syntax}",
-                value=f"`{sub_command.help or 'No description defined.'}`",
+                name=syntax,
+                value=f"`{sub_command.help or sub_command.brief or 'No description provided.'}`",
                 inline=False,
             )
         group_embed.set_footer(text=f"{len(group.commands)} Sub-Commands")
