@@ -6,10 +6,10 @@ from nextcord import Embed, Message
 
 
 class EmbeddedHelpCommand(HelpCommand):
-    """
-    A help command implementation using embeds.
+    """A help command implementation using embeds.
     This inherits from :class:`HelpCommand`.
     It extends it with the following attributes.
+
     Attributes
     ------------
     dm_help: Optional[:class:`bool`]
