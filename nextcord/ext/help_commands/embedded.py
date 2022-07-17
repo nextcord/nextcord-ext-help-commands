@@ -109,8 +109,6 @@ class EmbeddedHelpCommand(HelpCommand):
     # help
     async def send_bot_help(self, mapping: Mapping) -> Message:
         total_command_count = len(self.context.bot.commands)
-
-        self.main_embed_description = self.options.pop("main_embed_description", f"main desc")
         main_embed = Embed(
             title=self.main_embed_title,
             description=self.main_embed_description,
