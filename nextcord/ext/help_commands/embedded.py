@@ -55,33 +55,45 @@ class EmbeddedHelpCommand(HelpCommand):
         Defaults to default_color.
     """
 
-    def __init__(self, **options):
-        self.options = options
-        self.dm_help = options.pop("dm_only", False)
-        self.default_color = options.pop("default_color", 0xFFFFFF)
+    def __init__(
+        self,
+        *,
+        dm_help: bool = False,
+        default_color: int = 0xFFFFFF,
+        main_embed_title: str = "Overview about Cogs, Groups and Commands",
+        main_embed_description: str = "",
+        main_embed_color: int = None,
+        command_embed_title: str = "Command help",
+        command_embed_description: str = "If a parameter is surrounded by `<>`, it is a `required` parameter\nIf a parameter is surrounded by `[]`, it is an `optional` parameter.",
+        command_embed_color: int = None,
+        group_embed_title: str = "Group help",
+        group_embed_description: str = "",
+        group_embed_color: int = None,
+        cog_embed_title: str = "Cog help",
+        cog_embed_description: str = "",
+        cog_embed_color: int = None,
+    ):
 
-        self.main_embed_title = options.pop(
-            "main_embed_title", "Overview about Cogs, Groups and Commands"
-        )
-        self.main_embed_description = options.pop("main_embed_description", "")
-        self.main_embed_color = options.pop("main_embed_color", self.default_color)
+        self.dm_help = dm_help
+        self.default_color = default_color
 
-        self.command_embed_title = options.pop("command_embed_title", "Command help")
-        self.command_embed_description = options.pop(
-            "command_embed_description",
-            "If a parameter is surrounded by `<>`, it is a `required` parameter\nIf a parameter is surrounded by `[]`, it is an `optional` parameter.",
-        )
-        self.command_embed_color = options.pop("command_embed_color", self.default_color)
+        self.main_embed_title = main_embed_title
+        self.main_embed_description = main_embed_description
+        self.main_embed_color = main_embed_color or self.default_color
 
-        self.group_embed_title = options.pop("group_embed_title", "Group help")
-        self.group_embed_description = options.pop("group_embed_description", "")
-        self.group_embed_color = options.pop("group_embed_color", self.default_color)
+        self.command_embed_title = command_embed_title
+        self.command_embed_description = command_embed_description
+        self.command_embed_color = command_embed_color or self.default_color
 
-        self.cog_embed_title = options.pop("cog_embed_title", f"Cog help")
-        self.cog_embed_description = options.pop("cog_embed_description", "")
-        self.cog_embed_color = options.pop("cog_embed_color", self.default_color)
+        self.group_embed_title = group_embed_title
+        self.group_embed_description = group_embed_description
+        self.group_embed_color = group_embed_color or self.default_color
 
-        super().__init__(**options)
+        self.cog_embed_title = cog_embed_title
+        self.cog_embed_description = cog_embed_description
+        self.cog_embed_color = cog_embed_color or self.default_color
+
+        super().__init__()
 
     @staticmethod
     def determine_group_or_command(obj: Union[Command, Group]):
