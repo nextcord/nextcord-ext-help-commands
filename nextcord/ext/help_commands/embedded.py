@@ -6,7 +6,8 @@ from nextcord import Embed, Message
 
 
 class EmbeddedHelpCommand(HelpCommand):
-    """A help command implementation using embeds.
+    """
+    A help command implementation using embeds.
     This inherits from :class:`HelpCommand`.
     It extends it with the following attributes.
     Attributes
@@ -18,40 +19,40 @@ class EmbeddedHelpCommand(HelpCommand):
         The default color of all embeds.
         Defaults to 0xFFFFFF (White).
     main_embed_title: Optional[:class:`str`]
-        The title for the embed which gets send by invoking `help`.
+        The title for the embed which gets sent by invoking `help`.
         Defaults to "Overview about Cogs, Groups and Commands".
     main_embed_description: Optional[:class:`str`]
         The description for the embed which gets sent by invoking `help`.
         Defaults to an empty string.
     main_embed_color: Optional[:class:`int`]
-        The color for the embed which gets send by invoking `help`.
+        The color for the embed which gets sent by invoking `help`.
         Defaults to default_color.
     command_embed_title: Optional[:class:`str`]
-        The title for the embed which gets send by `help <command>`.
+        The title for the embed which gets sent by `help <command>`.
         Defaults to "Command help".
     command_embed_description: Optional[:class:`str`]
         The description for the embed which gets sent by invoking `help <command>`.
         Defaults to an empty string.
     command_embed_color: Optional[:class:`int`]
-        The color for the embed which gets send by invoking `help <command>`.
+        The color for the embed which gets sent by invoking `help <command>`.
         Defaults to default_color.
     group_embed_title: Optional[:class:`str`]
-        The title for the embed which gets send by invoking `help <group>`.
+        The title for the embed which gets sent by invoking `help <group>`.
         Defaults to "Group help".
     group_embed_description: Optional[:class:`str`]
-        The description for the embed which gets send by invoking `help <group>`.
+        The description for the embed which gets sent by invoking `help <group>`.
         Defaults to "If a parameter is surrounded by `<>`, it is a `required` parameter\nIf a parameter is surrounded by `[]`, it is an `optional` parameter.".
     group_embed_color: Optional[:class:`int`]
-        The color for the embed which gets send by invoking `help <group>`.
+        The color for the embed which gets sent by invoking `help <group>`.
         Defaults to default_color.
     cog_embed_title: Optional[:class:`str`]
-        The title for the embed which gets send by invoking `help <cog>`.
+        The title for the embed which gets sent by invoking `help <cog>`.
         Defaults to "Cog help".
     cog_embed_description: Optional[:class:`str`]
         The description for the embed which gets sent by invoking `help <cog>`.
         Defaults to an empty string.
     cog_embed_color: Optional[:class:`int`]
-        The color for the embed which gets send by invoking `help <cog>`.
+        The color for the embed which gets sent by invoking `help <cog>`.
         Defaults to default_color.
     """
 
