@@ -1,8 +1,7 @@
-from typing import Mapping, Union, Optional
-
-from nextcord.ext import commands
+from typing import Mapping, Optional, Union
 
 from nextcord import Embed, Message
+from nextcord.ext import commands
 
 
 class EmbeddedHelpCommand(commands.HelpCommand):
