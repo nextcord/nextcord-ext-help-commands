@@ -1,11 +1,11 @@
-from typing import Mapping, Union
+from typing import Mapping, Union, Optional
 
-from nextcord.ext.commands import Cog, Command, Group, HelpCommand
+from nextcord.ext import commands
 
 from nextcord import Embed, Message
 
 
-class EmbeddedHelpCommand(HelpCommand):
+class EmbeddedHelpCommand(commands.HelpCommand):
     """A help command implementation using embeds.
     This inherits from :class:`HelpCommand`.
     It extends it with the following attributes.
@@ -59,20 +59,20 @@ class EmbeddedHelpCommand(HelpCommand):
     def __init__(
         self,
         *,
-        dm_help: bool = False,
+        dm_help: Optional[bool] = False,
         default_color: int = 0xFFFFFF,
         main_embed_title: str = "Overview about Cogs, Groups and Commands",
-        main_embed_description: str = "",
-        main_embed_color: int = None,
+        main_embed_description: Optional[str] = None,
+        main_embed_color: Optional[int] = None,
         command_embed_title: str = "Command help",
         command_embed_description: str = "If a parameter is surrounded by `<>`, it is a `required` parameter\nIf a parameter is surrounded by `[]`, it is an `optional` parameter.",
-        command_embed_color: int = None,
+        command_embed_color: Optional[int] = None,
         group_embed_title: str = "Group help",
-        group_embed_description: str = "",
-        group_embed_color: int = None,
+        group_embed_description: Optional[str] = None,
+        group_embed_color: Optional[int] = None,
         cog_embed_title: str = "Cog help",
-        cog_embed_description: str = "",
-        cog_embed_color: int = None,
+        cog_embed_description: Optional[str] = None,
+        cog_embed_color: Optional[int] = None,
     ):
 
         self.dm_help = dm_help
@@ -97,8 +97,8 @@ class EmbeddedHelpCommand(HelpCommand):
         super().__init__()
 
     @staticmethod
-    def determine_group_or_command(obj: Union[Command, Group]):
-        return f"`{obj.name}[group]`" if isinstance(obj, Group) else f"`{obj.name}`"
+    def determine_group_or_command(obj: Union[commands.Command, commands.Group]):
+        return f"`{obj.name}[group]`" if isinstance(obj, commands.Group) else f"`{obj.name}`"
 
     async def send_embed(self, emb: Embed):
         return (
@@ -141,7 +141,7 @@ class EmbeddedHelpCommand(HelpCommand):
         return await self.send_embed(main_embed)
 
     # help <command>
-    async def send_command_help(self, command: Command) -> Message:
+    async def send_command_help(self, command: commands.Command) -> Message:
         syntax = f"{self.context.clean_prefix}{command.qualified_name} {command.signature}"
         command_embed = Embed(
             title=self.command_embed_title,
@@ -157,7 +157,7 @@ class EmbeddedHelpCommand(HelpCommand):
         return await self.send_embed(command_embed)
 
     # help <group>
-    async def send_group_help(self, group: Group) -> Message:
+    async def send_group_help(self, group: commands.Group) -> Message:
         group_embed = Embed(
             title=self.group_embed_title,
             description=self.group_embed_description,
@@ -175,7 +175,7 @@ class EmbeddedHelpCommand(HelpCommand):
         return await self.send_embed(group_embed)
 
     # help <cog>
-    async def send_cog_help(self, cog: Cog) -> Message:
+    async def send_cog_help(self, cog: commands.Cog) -> Message:
         cog_embed = Embed(
             title=self.cog_embed_title,
             description=self.cog_embed_description,
