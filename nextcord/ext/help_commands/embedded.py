@@ -188,5 +188,5 @@ class EmbeddedHelpCommand(commands.HelpCommand):
                     inline=False,
                 )
 
-        cog_embed.set_footer(text=f"{len(cog_cmds)} Cog-Commands")
+        cog_embed.set_footer(text=f"{len(cog_cmds)} commands")
         return await self.send_embed(cog_embed)
