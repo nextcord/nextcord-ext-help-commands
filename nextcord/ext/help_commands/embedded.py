@@ -30,7 +30,7 @@ class EmbeddedHelpCommand(commands.HelpCommand):
         Defaults to "Command help".
     command_embed_description: :class:`str`
         The description for the embed which gets sent by invoking `help <command>`.
-        Defaults to "If a parameter is surrounded by `<>`, it is a `required` parameter\nIf a parameter is surrounded by `[]`, it is an `optional` parameter."
+        Defaults to "If a parameter is surrounded by `<>`, it is a required parameter\nIf a parameter is surrounded by `[]`, it is an optional parameter."
     command_embed_color: Optional[:class:`int`]
         The color for the embed which gets sent by invoking `help <command>`.
         Defaults to default_color.
@@ -61,7 +61,7 @@ class EmbeddedHelpCommand(commands.HelpCommand):
         main_embed_description: Optional[str] = None,
         main_embed_color: Optional[int] = None,
         command_embed_title: str = "Command help",
-        command_embed_description: str = "If a parameter is surrounded by `<>`, it is a `required` parameter\nIf a parameter is surrounded by `[]`, it is an `optional` parameter.",
+        command_embed_description: str = "If a parameter is surrounded by `<>`, it is a required parameter\nIf a parameter is surrounded by `[]`, it is an optional parameter.",
         command_embed_color: Optional[int] = None,
         group_embed_title: str = "Group help",
         group_embed_description: Optional[str] = None,
