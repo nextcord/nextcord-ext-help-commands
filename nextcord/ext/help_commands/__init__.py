@@ -1,6 +1,6 @@
 from .errors import MissingDependencyError
 from .paginated import PaginatedHelpCommand
-from .slash import SlashHelpCommand, MinimalSlashHelpCommand
+from .slash import MinimalSlashHelpCommand, SlashHelpCommand
 
 # Needed for the setup.py script
 __version__ = "0.0.1"
