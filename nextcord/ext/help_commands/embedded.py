@@ -167,7 +167,7 @@ class EmbeddedHelpCommand(commands.HelpCommand):
                 value=f"`{sub_command.help or sub_command.brief or 'No description provided.'}`",
                 inline=False,
             )
-        group_embed.set_footer(text=f"{len(group.commands)} Sub-Commands")
+        group_embed.set_footer(text=f"{len(group.commands)} subcommands")
         return await self.send_embed(group_embed)
 
     # help <cog>
@@ -188,5 +188,5 @@ class EmbeddedHelpCommand(commands.HelpCommand):
                     inline=False,
                 )
 
-        cog_embed.set_footer(text=f"{len(cog_cmds)} Cog-Commands")
+        cog_embed.set_footer(text=f"{len(cog_cmds)} commands")
         return await self.send_embed(cog_embed)
