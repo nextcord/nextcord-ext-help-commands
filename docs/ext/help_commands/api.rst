@@ -16,6 +16,11 @@ PaginatedHelpCommand
 .. autoclass:: PaginatedHelpCommand
     :members:
 
+EmbeddedHelpCommand
+~~~~~~~~~~~~~~~~~~~~
+
+.. autoclass:: EmbeddedHelpCommand
+    :members:
 
 Exceptions
 ----------
