@@ -97,11 +97,9 @@ class EmbeddedHelpCommand(commands.HelpCommand):
         return f"`{obj.name}[group]`" if isinstance(obj, commands.Group) else f"`{obj.name}`"
 
     async def send_embed(self, emb: Embed):
-        return (
-            await self.context.author.send(embed=emb)
-            if self.dm_help
-            else await self.context.send(embed=emb)
-        )
+        if self.dm_help:
+            return await self.context.author.send(embed=emb)
+        return await self.context.send(embed=emb)
 
     # help
     async def send_bot_help(self, mapping: Mapping) -> Message:
