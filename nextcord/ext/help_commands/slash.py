@@ -12,8 +12,6 @@ class SlashHelpCommand:
 
     Attributes
     ----------
-    interaction: :class:`nextcord.Interaction`
-        The interaction that triggered the help command.
     verify_checks: :class:`bool`
         Whether to verify the checks of commands.
     help_command_name: :class:`str`
@@ -359,17 +357,23 @@ class SlashHelpCommand:
 
     @property
     def interaction(self) -> nextcord.Interaction:
-        """:class:`nextcord.Interaction`: The interaction object for the help command."""
+        """:class:`nextcord.Interaction`: The interaction object that invoked the help command."""
         return self._interaction
 
 
 class MinimalSlashHelpCommand(SlashHelpCommand):
     """A minimal implementation of the :class:`SlashHelpCommand` class.
 
+    Usage::
+
+        from nextcord.ext.help_commands import MinimalSlashHelpCommand
+
+        # Pass your Bot or Client instance to the add_to_client method
+        MinimalSlashHelpCommand().add_to_client(bot)
+
+
     Attributes
     ----------
-    interaction: :class:`nextcord.Interaction`
-        The interaction that triggered the help command.
     sort_commands: :class:`bool`
         Whether to sort the commands in the help command.
     command_heading: :class:`str`

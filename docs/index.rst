@@ -18,8 +18,8 @@ To use pagination help commands:
 
    pip install -U nextcord-ext-help-commands[menus]
 
-Basic usage
------------
+Basic help command usage
+------------------------
 
 .. code:: py
 
@@ -36,6 +36,23 @@ Basic usage
    )
 
    bot.run("token")
+
+Slash help command usage
+------------------------
+
+.. code:: py
+
+   from nextcord.ext import commands
+   from nextcord.ext import help_commands
+
+   # An instance of nextcord.Client may be used instead of commands.Bot
+   bot = commands.Bot()
+
+   # Pass your Bot or Client instance to the add_to_client method
+   help_commands.MinimalSlashHelpCommand().add_to_client(bot)
+
+   bot.run("token")
+
 
 Contents
 --------
