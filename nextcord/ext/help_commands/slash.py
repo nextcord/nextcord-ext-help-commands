@@ -284,19 +284,21 @@ class SlashHelpCommand:
         await self.prepare_help_command(interaction, command_name, cog_name)
 
         if cog_name:
+            find_cog: Callable[[nextcord.ClientCog], bool] = lambda cog: str(cog) == cog_name
             cog = (
                 client.get_cog(cog_name)
                 if isinstance(client, commands.Bot)
-                else nextcord.utils.find(lambda c: str(c) == cog_name, client._client_cogs)
+                else nextcord.utils.find(find_cog, client._client_cogs)
             )
             if cog is None:
                 return await interaction.send(self.cog_not_found(cog_name))
             return await self.send_cog_help(cog)
 
         if command_name:
-            command = nextcord.utils.find(
-                lambda c: c.name == command_name, client.get_all_application_commands()
+            find_command: Callable[[nextcord.BaseApplicationCommand], bool] = (
+                lambda c: c.name == command_name
             )
+            command = nextcord.utils.find(find_command, client.get_all_application_commands())
             if command is None:
                 return await interaction.send(self.command_not_found(command_name))
             return await self.send_command_help(command)
@@ -452,7 +454,7 @@ class MinimalSlashHelpCommand(SlashHelpCommand):
             output += f"{note}\n\n"
 
         if getattr(client, "description", None):
-            output += f"{client.description}\n\n"  # type: ignore
+            output += f"{client.description}\n\n"
 
         no_category = f"\u200b{self.no_category}:"
 
