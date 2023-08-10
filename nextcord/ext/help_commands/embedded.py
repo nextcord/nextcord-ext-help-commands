@@ -70,7 +70,6 @@ class EmbeddedHelpCommand(commands.HelpCommand):
         cog_embed_description: Optional[str] = None,
         cog_embed_color: Optional[int] = None,
     ):
-
         self.dm_help = dm_help
         self.default_color = default_color
 
