@@ -22,6 +22,21 @@ EmbeddedHelpCommand
 .. autoclass:: EmbeddedHelpCommand
     :members:
 
+Slash Help Commands
+-------------------
+
+SlashHelpCommand
+~~~~~~~~~~~~~~~~
+
+.. autoclass:: SlashHelpCommand
+    :members:
+
+MinimalSlashHelpCommand
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. autoclass:: MinimalSlashHelpCommand
+    :members:
+
 Exceptions
 ----------
 
